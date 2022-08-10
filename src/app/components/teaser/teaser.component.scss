@@ -1,0 +1,11 @@
+.teaser-offer {
+    width: 400px;
+    text-align: center;
+    border-radius: 5px;
+    transition: box-shadow 1s;
+    margin-bottom: 12.5px;
+}
+
+.teaser-offer:hover {
+    box-shadow: 0px 7px rgba(0, 0, 0, 0.1);
+}

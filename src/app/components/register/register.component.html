@@ -1,0 +1,22 @@
+<form class="form-container" [formGroup]="registerForm">
+    <div class="form-control">
+        <input id="firstName" type="text" placeholder="First Name" formControlName="firstName">
+    </div>
+    <div class="form-control">
+        <input id="lastName" type="text" placeholder="Last Name" formControlName="lastName">
+    </div>
+    <div class="form-control">
+        <input id="email" type="email" placeholder="Email Address" formControlName="email">
+    </div>
+    <div class="form-control">
+        <input id="password" type="text" placeholder="Password" formControlName="password">
+    </div>
+
+    <app-button background="hsl(154, 59%, 51%)" color="#fff"></app-button>
+
+    <p class="disclaimer">By clicking the button, you are agreeing to our <a href="#">Terms and Services</a></p>
+</form>
+
+<hr>
+
+<p>Form Value: {{ this.registerForm.value | json }}</p>

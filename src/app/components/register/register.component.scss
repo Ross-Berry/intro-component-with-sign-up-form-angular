@@ -1,0 +1,30 @@
+.form-container {
+    width: 400px;
+    text-align: center;
+    border-radius: 5px;
+    background: #fff;
+    padding: 18px 25px;
+}
+
+.form-control {
+    padding: 6px 0px;
+}
+
+input {
+    width: 100%;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    font-weight: 700;
+    padding: 12.5px 25px;
+}
+
+.disclaimer {
+    font-size: 0.5em;
+    color: hsl(246, 25%, 77%);
+}
+
+a {
+    text-decoration: none;
+    font-weight: 700;
+    color: hsl(0, 100%, 74%);
+}
