@@ -1,0 +1,17 @@
+.caption {
+    font-size: 3em;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 50px;
+}
+
+.blurb {
+    color: #fff;
+    line-height: 1.5em;
+}
+
+@media screen and (max-width: 415px) {
+    .caption {
+        font-size: 1.5em;
+    }
+}

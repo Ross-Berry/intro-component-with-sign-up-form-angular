@@ -5,14 +5,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TeaserComponent } from './components/teaser/teaser.component';
 import { RegisterComponent } from './components/register/register.component';
-import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TeaserComponent,
-    RegisterComponent,
-    ButtonComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

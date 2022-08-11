@@ -7,11 +7,13 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  hoverState: boolean = false;
+
   registerForm = this.fb.group({
     firstName: ["", Validators.required],
-    lastname: ["", Validators.required],
-    email: ["", Validators.required],
-    password: ["", Validators.required]
+    lastName: ["", Validators.required],
+    email: ["", [Validators.email, Validators.required]],
+    password: ["", [Validators.pattern("^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? \"]).*$"), Validators.required]] 
   })
 
   constructor(private fb: FormBuilder) { }
@@ -19,4 +21,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit() {
+    //TODO - Submission
+  }
 }
