@@ -4,15 +4,14 @@
     border-radius: 5px;
     transition: box-shadow 1s;
     margin-bottom: 12.5px;
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
 }
 
 .teaser-offer:hover {
     box-shadow: 0px 7px rgba(0, 0, 0, 0.1);
-}
-
-a {
-    text-decoration: none;
-    color: #fff;
 }
 
 @media screen and (max-width: 415px) {

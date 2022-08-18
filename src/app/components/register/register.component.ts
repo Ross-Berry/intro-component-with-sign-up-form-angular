@@ -40,7 +40,11 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    
+    if (this.preCheck(this.users, this.registerForm)) {
+      alert("User with that email already exists");
+    } else {
+      this.users.push(this.registerForm.value);
+    };
 
     // Form Clearance
     this.registerForm.reset("firstName");
@@ -48,6 +52,17 @@ export class RegisterComponent implements OnInit {
     this.registerForm.reset("email");
     this.registerForm.reset("password");
   }
-}
 
-// alert("User with that email already exists");
+  preCheck(users: User[], form: FormGroup): boolean {
+    let newEmail = form.get("email")?.value;
+    let exists = false;
+
+    users.forEach(user => {
+      if (user.email === newEmail) { 
+        exists = true;
+      }
+    })
+    
+    return exists;
+  }
+}

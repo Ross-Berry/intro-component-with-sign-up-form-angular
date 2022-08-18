@@ -4,56 +4,48 @@
     border-radius: 5px;
     background: #fff;
     padding: 18px 25px;
-}
-
-.form-control {
-    padding: 6px 0px;
-}
-
-input {
-    width: 100%;
-    border-color: rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    font-weight: 700;
-    padding: 12.5px 25px;
-}
-
-.input-error {
-    border-color: hsl(0, 100%, 74%);
-}
-
-.danger {
-    text-align: end;
-    font-size: 0.5em;
-    color: hsl(0, 100%, 74%);
-}
-
-.btn {
-    width: 100%;
-    background-color: hsl(154, 59%, 51%);
-    border-radius: 5px;
-    border: none;
-    color: #fff;
-    font-weight: 700;
-    transition: background-color 1s;
-    padding: 12.5px 25px;
-    margin: 6px 0px;
-}
-
-.btn:hover {
-    background-color: hsl(154, 59%, 70%);
-    cursor: pointer;
-}
-
-.disclaimer {
-    font-size: 0.5em;
-    color: hsl(246, 25%, 77%);
-}
-
-a {
-    text-decoration: none;
-    font-weight: 700;
-    color: hsl(0, 100%, 74%);
+    .form-control {
+        padding: 6px 0px;
+        input {
+            width: 100%;
+            border-color: rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            font-weight: 700;
+            padding: 12.5px 25px;
+        }
+        .input-error {
+            border-color: hsl(0, 100%, 74%);
+        }
+        .danger {
+            text-align: end;
+            font-size: 0.5em;
+            color: hsl(0, 100%, 74%);
+        }
+    }
+    .btn {
+        width: 100%;
+        background-color: hsl(154, 59%, 51%);
+        border-radius: 5px;
+        border: none;
+        color: #fff;
+        font-weight: 700;
+        transition: background-color 1s;
+        padding: 12.5px 25px;
+        margin: 6px 0px;
+    }
+    .btn:hover {
+        background-color: hsl(154, 59%, 70%);
+        cursor: pointer;
+    }
+    .disclaimer {
+        font-size: 0.5em;
+        color: hsl(246, 25%, 77%);
+        a {
+            text-decoration: none;
+            font-weight: 700;
+            color: hsl(0, 100%, 74%);
+        }
+    }
 }
 
 @media screen and (max-width: 415px) {

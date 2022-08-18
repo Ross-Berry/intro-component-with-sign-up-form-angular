@@ -5,18 +5,18 @@ export const USERS: User[] = [
         firstName: "Daniel",
         lastName: "Clayton",
         email: "daniel.clayton4@gmail.com",
-        password: "Danny@1"
+        password: "DannyClayton"
     },
     {
         firstName: "Thomas",
         lastName: "Moore",
         email: "tmoore@gmail.com",
-        password: "Moore1993"
+        password: "TomMoore"
     },
     {
         firstName: "Timothy",
         lastName: "Walker",
         email: "timothy.walker@gmail.com",
-        password: "walker=81"
+        password: "TimWalker"
     }
 ]
