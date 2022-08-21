@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegisterService } from './register.service';
+import { RegistryService } from './registry.service';
 import { User } from 'src/app/User';
 
 @Component({
@@ -13,10 +13,12 @@ export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
   strikeThrough!: boolean;
 
-  constructor(private fb: FormBuilder, private registerService: RegisterService) { }
+  constructor(private fb: FormBuilder, private registryService: RegistryService) { }
 
   ngOnInit(): void {
-    this.users = this.registerService.getUsers();
+    this.registryService.getUsers().subscribe(users => {
+      this.users = users;
+    })
 
     this.registerForm = this.fb.group({
       firstName: ["", Validators.required],
@@ -40,17 +42,23 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
+    const user = this.registerForm.value;
+
+    console.log(user);
+
     if (this.preCheck(this.users, this.registerForm)) {
       alert("User with that email already exists");
     } else {
-      this.users.push(this.registerForm.value);
-    };
+      this.registryService.addUser(user).subscribe(user => {
+        this.users.push(user);
+      }); 
 
-    // Form Clearance
-    this.registerForm.reset("firstName");
-    this.registerForm.reset("lastName");
-    this.registerForm.reset("email");
-    this.registerForm.reset("password");
+      // Form Clearance
+      this.registerForm.reset("firstName");
+      this.registerForm.reset("lastName");
+      this.registerForm.reset("email");
+      this.registerForm.reset("password");
+    };
   }
 
   preCheck(users: User[], form: FormGroup): boolean {
