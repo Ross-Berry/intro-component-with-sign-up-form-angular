@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegistryService } from './registry.service';
-import { User } from 'src/app/User';
+import { MemberService } from './member.service';
+import { Member } from 'src/app/Member';
 
 @Component({
   selector: 'app-register',
@@ -9,15 +9,15 @@ import { User } from 'src/app/User';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  users!: User[];
+  members!: Member[];
   registerForm!: FormGroup;
   strikeThrough!: boolean;
 
-  constructor(private fb: FormBuilder, private registryService: RegistryService) { }
+  constructor(private fb: FormBuilder, private memberService: MemberService) { }
 
   ngOnInit(): void {
-    this.registryService.getUsers().subscribe(users => {
-      this.users = users;
+    this.memberService.getUsers().subscribe(members => {
+      this.members = members;
     })
 
     this.registerForm = this.fb.group({
@@ -42,15 +42,14 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    const user = this.registerForm.value;
+    const member = this.registerForm.value;
 
-    console.log(user);
-
-    if (this.preCheck(this.users, this.registerForm)) {
+    if (this.preCheck(this.members, this.registerForm)) {
       alert("User with that email already exists");
     } else {
-      this.registryService.addUser(user).subscribe(user => {
-        this.users.push(user);
+      this.memberService.addUser(member).subscribe(member => {
+        this.members.push(member);
+        alert("User has subscribed to a free trial");
       }); 
 
       // Form Clearance
@@ -61,12 +60,12 @@ export class RegisterComponent implements OnInit {
     };
   }
 
-  preCheck(users: User[], form: FormGroup): boolean {
+  preCheck(members: Member[], form: FormGroup): boolean {
     let newEmail = form.get("email")?.value;
     let exists = false;
 
-    users.forEach(user => {
-      if (user.email === newEmail) { 
+    members.forEach(member => {
+      if (member.email === newEmail) { 
         exists = true;
       }
     })
