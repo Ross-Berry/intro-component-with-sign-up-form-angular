@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
       firstName: ["", Validators.required],
       lastName: ["", Validators.required],
       email: ["", [Validators.required, Validators.email]],
-      password: ["", [Validators.required, Validators.pattern("^[A-Za-z]{8,}$")]] // Minimum 8 characters
+      password: ["", [Validators.required, Validators.pattern(/^[a-zA-Z0-9!@#$%^&*]{8,}$/)]] // Minimum 8 characters or numbers
     })
 
     this.onChanges();
@@ -45,11 +45,11 @@ export class RegisterComponent implements OnInit {
     const member = this.registerForm.value;
 
     if (this.preCheck(this.members, this.registerForm)) {
-      alert("User with that email already exists");
+      alert("Member with that email already exists");
     } else {
       this.memberService.addUser(member).subscribe(member => {
         this.members.push(member);
-        alert("User has subscribed to a free trial");
+        alert("You have subscribed to a free trial");
       }); 
 
       // Form Clearance

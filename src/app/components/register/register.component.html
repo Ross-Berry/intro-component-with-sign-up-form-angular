@@ -22,7 +22,7 @@
         <input id="password" type="password" placeholder="Password" formControlName="password">
         <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
             <p class="danger" *ngIf="registerForm.get('password')?.hasError('required')">Password cannot be empty</p>
-            <p class="danger" *ngIf="registerForm.get('password')?.hasError('pattern')">Minimum 8 characters</p>
+            <p class="danger" *ngIf="registerForm.get('password')?.hasError('pattern')">Minimum 8 characters or numbers</p>
         </div>
     </div>
 
