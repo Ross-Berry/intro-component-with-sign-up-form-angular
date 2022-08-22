@@ -1,4 +1,4 @@
-@import "https://fonts.google.com/specimen/Poppins";
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
     box-sizing: border-box;
@@ -7,7 +7,7 @@
 body {
     padding: 0%;
     margin: 0%;
-    font-family: Poppins, sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
     background-color: hsl(0, 100%, 74%);
     background-image: url("./assets/images/bg-intro-desktop.png");
