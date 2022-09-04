@@ -45,8 +45,8 @@ Users should be able to:
 - HTML
 - CSS
 - TypeScript
-- [Angular](https://angular.io/) - JavaScript framework
-- [SASS](https://sass-lang.com/) - CSS Extension 
+- Angular - JavaScript framework
+- SASS - CSS Extension 
 - Flexbox
 - Mobile responsive
 - Reactive forms
