@@ -12,6 +12,9 @@ export class RegisterComponent implements OnInit {
   members!: Member[];
   registerForm!: FormGroup;
   strikeThrough!: boolean;
+  error: boolean = false;
+  message: string = "";
+  showMessage: boolean = false;
 
   constructor(private fb: FormBuilder, private memberService: MemberService) { }
 
@@ -45,11 +48,23 @@ export class RegisterComponent implements OnInit {
     const member = this.registerForm.value;
 
     if (this.preCheck(this.members, this.registerForm)) {
-      alert("Member with that email already exists");
+      // alert("Member with that email already exists");
+      this.error = true;
+      this.message = "Member with that email already exists!";
+      this.showMessage = true;
+      setTimeout(() => {
+        this.showMessage = false;
+      }, 3000);
     } else {
       this.memberService.addUser(member).subscribe(member => {
         this.members.push(member);
-        alert("You have subscribed to a free trial");
+        // alert("You have subscribed to a free trial");
+        this.error = false;
+        this.message = "You have subscribed to a free trial!";
+        this.showMessage = true;
+        setTimeout(() => {
+          this.showMessage = false;
+        }, 3000);
       }); 
 
       // Form Clearance

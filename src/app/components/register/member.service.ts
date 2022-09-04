@@ -13,7 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class MemberService {
-  private apiUrl: string = "https://registry-api.herokuapp.com/users";
+  private apiUrl: string = "https://registry-api.herokuapp.com/members";
 
   constructor(private http: HttpClient) { }
 
