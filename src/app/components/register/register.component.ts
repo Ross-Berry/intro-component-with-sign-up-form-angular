@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MemberService } from './member.service';
-import { Member } from 'src/app/Member';
+import { UserService } from '../../services/user.service';
+import { User } from '../../User';
 
 @Component({
   selector: 'app-register',
@@ -9,18 +9,18 @@ import { Member } from 'src/app/Member';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  members!: Member[];
+  users!: User[];
   registerForm!: FormGroup;
   strikeThrough!: boolean;
   error: boolean = false;
   message: string = "";
   showMessage: boolean = false;
 
-  constructor(private fb: FormBuilder, private memberService: MemberService) { }
+  constructor(private fb: FormBuilder, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.memberService.getUsers().subscribe(members => {
-      this.members = members;
+    this.userService.getUsers().subscribe(users => {
+      this.users = users;
     })
 
     this.registerForm = this.fb.group({
@@ -45,9 +45,9 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    const member = this.registerForm.value;
+    const user = this.registerForm.value;
 
-    if (this.preCheck(this.members, this.registerForm)) {
+    if (this.preCheck(this.users, this.registerForm)) {
       // alert("Member with that email already exists");
       this.error = true;
       this.message = "Member with that email already exists!";
@@ -56,8 +56,8 @@ export class RegisterComponent implements OnInit {
         this.showMessage = false;
       }, 3000);
     } else {
-      this.memberService.addUser(member).subscribe(member => {
-        this.members.push(member);
+      this.userService.addUser(user).subscribe(user => {
+        this.users.push(user);
         // alert("You have subscribed to a free trial");
         this.error = false;
         this.message = "You have subscribed to a free trial!";
@@ -75,12 +75,12 @@ export class RegisterComponent implements OnInit {
     };
   }
 
-  preCheck(members: Member[], form: FormGroup): boolean {
+  preCheck(users: User[], form: FormGroup): boolean {
     let newEmail = form.get("email")?.value;
     let exists = false;
 
-    members.forEach(member => {
-      if (member.email === newEmail) { 
+    users.forEach(user => {
+      if (user.email === newEmail) { 
         exists = true;
       }
     })

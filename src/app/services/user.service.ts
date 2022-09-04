@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Member } from '../../Member';
+import { User } from '../User';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -12,16 +12,16 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class MemberService {
-  private apiUrl: string = "https://registry-api.herokuapp.com/members";
+export class UserService {
+  private apiUrl: string = "https://registry-api.herokuapp.com/users";
 
   constructor(private http: HttpClient) { }
 
-  getUsers(): Observable<Member[]> {
-    return this.http.get<Member[]>(this.apiUrl);
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.apiUrl);
   }
 
-  addUser(user: Member): Observable<any> {
-    return this.http.post<Member>(this.apiUrl, user, httpOptions);
+  addUser(user: User): Observable<any> {
+    return this.http.post<User>(this.apiUrl, user, httpOptions);
   }
 }

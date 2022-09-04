@@ -1,6 +1,6 @@
-import { Member } from './Member';
+import { User } from './User';
 
-export const MEMBERS: Member[] = [
+export const USERS: User[] = [
     {
         id: 1,
         firstName: "Daniel",
